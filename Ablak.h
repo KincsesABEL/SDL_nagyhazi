@@ -1,4 +1,4 @@
-//Kincses Ábel SORHOJ
+//Kincses Ábel
 // Created by kabel on 2023.04.17..
 //
 
