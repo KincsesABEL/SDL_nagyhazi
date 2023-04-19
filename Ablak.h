@@ -13,7 +13,7 @@ using namespace std;
 
 class Ablak : private SDL_Objektum {
 public:
-    Ablak(string nev = "SDL ablak", int szelesseg = 640, int magassag = 480, bool allandomeret = true, bool szinkronizaltrenderer = true);
+    explicit Ablak(string nev = "SDL ablak", int szelesseg = 640, int magassag = 480, bool allandomeret = true, bool szinkronizaltrenderer = true);
     ~Ablak();
 
 //    Ablakot másolni nem lehet, átadni is csak referenciában vagy pointerrel
@@ -31,6 +31,15 @@ public:
     SDL_Renderer *getRenderer(){ return renderer;}
     SDL_Renderer *operator-(){ return renderer;}
 
+    [[nodiscard]] const Uint32& getAblakAzonosito() const{ return azonositoszam;}
+    [[nodiscard]] const int& getSzelesseg() const{ return szelesseg;}
+    [[nodiscard]] const int& getMagassag() const{ return magassag;}
+    [[nodiscard]] const bool& egerRajtaVan_e() const{ return eger_rajta;}
+    [[nodiscard]] const bool& billentyuzetRajtaVan_e() const{ return billentyuzet_rajta;}
+    [[nodiscard]] const bool& teljesKepernyo_e() const{ return teljes_kepernyo;}
+    [[nodiscard]] const bool& talcaraTettek_e() const{ return eltuntetett;}
+    [[nodiscard]] const bool& latszik_e() const{ return latszik;}
+
 private:
     SDL_Window* ablakpointer;
     SDL_Renderer* renderer;
@@ -39,7 +48,7 @@ private:
 
     int szelesseg, magassag;
 
-    bool eger_rajta, billentyuzet_rajta, teljes_kepernyo, eltuntetett, letezik;
+    bool eger_rajta, billentyuzet_rajta, teljes_kepernyo, eltuntetett, latszik;
 
     static int ablakszamlalo;
 };
