@@ -1,9 +1,9 @@
-//Kincses Ábel SORHOJ
-// Created by kabel on 2023.04.17..
+//
+// Created by kabel on 2023.04.21..
 //
 
-#ifndef SDL_ATIRAT_SDL_OBJEKTUM_H
-#define SDL_ATIRAT_SDL_OBJEKTUM_H
+#ifndef SDL_ATIRAT2_0_SDL_OBJEKTUM_H
+#define SDL_ATIRAT2_0_SDL_OBJEKTUM_H
 
 #ifdef _WIN32
 #include <SDL.h>
@@ -11,17 +11,23 @@
 #include <SDL2/SDL.h>
 #endif
 
-class SDL_Objektum {
-private:
-    static int objektumszamlalo;
+namespace SDL {
 
-    static void indit();
-    static void bezar();
+    class SDL_Objektum {
+    private:
+        static int objektumszamlalo;
 
-public:
-    SDL_Objektum();
-    ~SDL_Objektum();
-};
+        static void indit();
+        static void bezar();
+
+    public:
+        SDL_Objektum();
+        SDL_Objektum(const SDL_Objektum&){ objektumszamlalo++;}
+        ~SDL_Objektum();
+//        operator= nem kell
+    };
 
 
-#endif //SDL_ATIRAT_SDL_OBJEKTUM_H
+} // SDL
+
+#endif //SDL_ATIRAT2_0_SDL_OBJEKTUM_H
