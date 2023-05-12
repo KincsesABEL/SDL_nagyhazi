@@ -6,23 +6,34 @@
 #define SDL_ATIRAT2_0_BETUKESZLET_H
 
 #include <string>
-#include <map>
 #include "SDL_TTF_objektum.h"
 
-namespace SDL {
+/// @file Betukeszlet.h A Betukeszlet osztály deklarálása.
 
+namespace SDL {
+///    Fontok (betűtípusok) betöltésére használható osztály.
+
+/// A TTF_Font segítségével tölt be true type font betíkészletet.
     class Betukeszlet : private SDL_TTF_objektum{
     private:
+///        A fontot tároló TTF_Font pointer.
         TTF_Font* mFont;
 
     public:
+///        Betűkészlet betöltése.
+
+///        @param font A betűkészlet elérési útja és neve.
+///        @param betumeret Ebben a méretben tölti be az SDL_ttf a fontot.
         Betukeszlet(const std::string& font, int betumeret);
+///        Betűkészlet memóriájának felszabadítása.
         ~Betukeszlet();
 
-//        hogy csak egyszer zárjuk be az elején megnyitott fontot
+///        Egy font csak egyszer szerepeljen a memóriában, ezért nem lehet másolni.
         Betukeszlet(const Betukeszlet&) = delete;
+///        Egy font csak egyszer szerepeljen a memóriában, ezért nem lehet másolni.
         Betukeszlet& operator=(const Betukeszlet&) = delete;
 
+///        A háttérben álló TTF_Font típusú pointert adja vissza.
         TTF_Font *getFont(){ return mFont;}
     };
 

@@ -7,14 +7,14 @@
 
 namespace SDL {
     Betukeszlet::Betukeszlet(const std::string& font, int betumeret) {
-//        font betöltése
+///        A font betöltése.
         mFont = TTF_OpenFont(font.c_str(), betumeret);
 
         if(mFont == nullptr) throw SDL_Error("Nem sikerült megnyitni a " + font + " betűkészletet!");
     }
 
     Betukeszlet::~Betukeszlet() {
-//        font bezárása
+///        A font bezárása.
         TTF_CloseFont(mFont);
 
     }

@@ -8,11 +8,17 @@
 #include <stdexcept>
 #include <string>
 
-namespace SDL {
+/// @file SDL_Error.h Az SDL_Error osztály deklarálása.
 
-//    Automatikusan hívja az SDL_GetError()-t ezért csak akkor dobjuk, ha valamely SDL függvény hibával tért vissza. Ezen kívül teljesen domain_error.
+namespace SDL {
+///    Csak SDL specifikus error dobására.
+
+///    Automatikusan hívja az SDL_GetError()-t, ezért CSAK AKKOR dobjuk, ha valamely SDL függvény hibával tért vissza. Ezen kívül teljesen domain_error.
     class SDL_Error : public std::domain_error{
     public:
+///        Error dobása üzenettel.
+
+///        @param uzenet Az üzenet, ami tartalmazza, hogy mi lehet a hiba oka.
         explicit SDL_Error(const std::string &uzenet);
     };
 

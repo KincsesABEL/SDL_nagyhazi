@@ -9,7 +9,7 @@ namespace SDL {
     int SDL_TTF_objektum::objektumszamlalo = 0;
 
     void SDL_TTF_objektum::indit() {
-//        SDLttf indítása
+///        SDL_ttf indítása.
         if(TTF_Init() == -1){
             throw SDL_Error("SDL ttf nem tudott elindulni!");
         }
@@ -17,11 +17,12 @@ namespace SDL {
     }
 
     void SDL_TTF_objektum::bezar() {
-//        kilépés a ttf-ből
+///        Kilépés a ttf-ből.
         TTF_Quit();
     }
 
     SDL_TTF_objektum::SDL_TTF_objektum() {
+///        Az első objektum indítja,
         if(objektumszamlalo == 0) indit();
 
         objektumszamlalo++;
@@ -30,6 +31,7 @@ namespace SDL {
     SDL_TTF_objektum::~SDL_TTF_objektum() {
         objektumszamlalo--;
 
+///        az utolsó bezárja az alrendszert.
         if(objektumszamlalo == 0) bezar();
     }
 } // SDL

@@ -11,20 +11,32 @@
 #include <SDL2/SDL.h>
 #endif
 
-namespace SDL {
+/// @file SDL_Objektum.h Az SDL_Objektum deklarálása.
 
+namespace SDL {
+/// Az SDL alrendszereinek indítására szolgál, az összes osztály, ami SDL-t használ, örökli.
+
+/// Fontos, hogy minden SDL-t használó osztály örökölje, különben nem lesz szinkronban az SDL indítása és leállítása.
     class SDL_Objektum {
     private:
+///        Számontartja, mennyi objektum használ még SDL-t.
         static int objektumszamlalo;
 
+///        SDL indítása.
+
+///        @throws SDL_Error Sikertelen indítás esetén.
         static void indit();
+///        SDL bezárása.
         static void bezar();
 
     public:
+///        Objektum létrehozása.
         SDL_Objektum();
+///        Másoló konstruktor.
         SDL_Objektum(const SDL_Objektum&){ objektumszamlalo++;}
+        ///        Az objektum megszüntetése
         ~SDL_Objektum();
-//        operator= nem kell
+///        Operator=-ből elég az alapverzió.
     };
 
 
