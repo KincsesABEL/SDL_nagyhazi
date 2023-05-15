@@ -1,4 +1,4 @@
-//
+//Kincses Ábel SORHOJ
 // Created by kabel on 2023.04.21..
 //
 
@@ -142,7 +142,7 @@ namespace SDL {
         }
 ///        Pixelek mentése.
         if(IMG_SaveJPG(keppontok, nev.c_str(), minoseg) < 0){
-            throw SDL::SDL_Error("Nem sikerült elmenteni a " + nev + "képet!");
+            throw SDL::SDL_Error("Nem sikerült elmenteni a " + nev + " képet!");
         }
 
     }
@@ -196,7 +196,7 @@ namespace SDL {
         }
 ///        A pixelek mentése.
         if(IMG_SavePNG(keppontok, nev.c_str()) < 0){
-            throw SDL::SDL_Error("Nem sikerült elmenteni a " + nev + "képet!");
+            throw SDL::SDL_Error("Nem sikerült elmenteni a " + nev + " képet!");
         }
     }
 
